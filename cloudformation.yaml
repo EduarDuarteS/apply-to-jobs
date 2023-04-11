@@ -1,0 +1,24 @@
+Resources:
+  ApplicationsTable:
+    Type: "AWS::DynamoDB::Table"
+    Properties:
+      AttributeDefinitions:
+        - AttributeName: "user_id_job_id"
+          AttributeType: "S"
+        - AttributeName: "date_c"
+          AttributeType: "S"
+        - AttributeName: "count_applications"
+          AttributeType: "N"
+      KeySchema:
+        - AttributeName: "user_id_job_id"
+          KeyType: "HASH"
+        - AttributeName: "date_c"
+          KeyType: "RANGE"
+        - AttributeName: "count_applications"
+          KeyType: "RANGE"
+      ProvisionedThroughput:
+        ReadCapacityUnits: 5
+        WriteCapacityUnits: 5
+      TableName: "ApplicationsTable"
+
+
